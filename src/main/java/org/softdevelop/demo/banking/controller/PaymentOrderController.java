@@ -31,4 +31,13 @@ public class PaymentOrderController implements IPaymentOrderController {
     public PaymentOrder addPaymentOrder(@Valid PaymentOrder paymentOrder) {
         return service.save(paymentOrder);
     }
+
+    @Override
+    public Response assignOrderToBranch(Integer orderId, Integer branchId) {
+        PaymentOrder paymentOrder = service.assignOrderToBranch(orderId, branchId);
+        if(paymentOrder != null) {
+            return Response.ok(paymentOrder).build();
+        } else return Response.notModified("Error al vincular. Entidades no encontradas").build();
+    }
+
 }

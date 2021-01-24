@@ -17,14 +17,14 @@ public class WebServiceConf {
     private Bus bus;
 
     @Autowired
-    private BranchesWSImpl branchesWS;
+    private BranchesWSImpl sucursalesWS;
 
     @Bean
     public Endpoint endpoint() {
         EndpointInfo ei = new EndpointInfo();
         ei.setName(new QName("http://ws.banking.demo.softdevelop.org/", "EndpointName"));
         EndpointImpl endpoint = null;
-        endpoint = new EndpointImpl(bus,branchesWS);
+        endpoint = new EndpointImpl(bus,sucursalesWS);
         endpoint.publish("/branchesservice");
         return endpoint;
     }

@@ -10,4 +10,6 @@ public interface IPaymentOrder {
     Optional<PaymentOrder> findById(int id);
     PaymentOrder save(PaymentOrder std);
     void deleteById(int id);
+    PaymentOrder assignOrderToBranch(int orderId, int branchId);
+
 }

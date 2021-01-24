@@ -25,4 +25,11 @@ public interface IPaymentOrderController {
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     PaymentOrder addPaymentOrder(@Valid @RequestBody PaymentOrder paymentOrder);
+
+    @Path("/associate/{orderId}/{branchId}")
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    Response assignOrderToBranch(@PathParam("orderId") Integer orderId, @PathParam("branchId") Integer branchId);
+
 }

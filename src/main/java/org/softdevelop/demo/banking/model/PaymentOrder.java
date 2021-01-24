@@ -8,6 +8,7 @@ import lombok.experimental.Accessors;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Getter
@@ -22,11 +23,11 @@ public class PaymentOrder implements Serializable {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
-    @NotEmpty(message = "Name is required")
+    @NotNull(message = "Name is required")
     private double amount;
     @NotEmpty(message = "Currency is required")
     private String currency;
-    @NotEmpty(message = "State is required")
+    @NotNull(message = "State is required")
     private State state;
     @NotEmpty(message = "Payment Date is required")
     private String paymentDate;
